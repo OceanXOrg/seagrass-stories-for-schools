@@ -50,6 +50,10 @@ h1 {
 .outcomes li { margin: 7px 0; }
 .outcomes b { color: var(--pale); }
 
+.experience-intro { margin: 42px 0 18px; }
+.experience-intro h2 { margin: 0 0 5px; font: .82rem/1.4 var(--mono); letter-spacing: .18em; color: var(--lime); }
+.experience-intro p { margin: 0; font-size: 1.35rem; line-height: 1.25; color: var(--pale); }
+
 .downloads { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
 .button { display: inline-block; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 650; background: var(--lime); color: #0f1a10; }
 .button.secondary { background: transparent; color: var(--lime2); border: 1px solid var(--line); }
@@ -84,6 +88,8 @@ details[open] summary:after { content: "−"; }
   .meta { gap: 6px; margin-bottom: 22px; }
   .pill { font-size: .72rem; padding: 4px 9px; }
   .callout, .alignment, .feedback { padding: 17px 16px; margin-bottom: 20px; }
+  .experience-intro { margin: 32px 2px 16px; }
+  .experience-intro p { font-size: 1.2rem; }
   .alignment h2, .feedback h2 { font-size: .78rem; }
   .downloads { display: grid; gap: 8px; }
   .downloads .button, .play { display: block; width: 100%; text-align: center; padding: 11px 14px; }
