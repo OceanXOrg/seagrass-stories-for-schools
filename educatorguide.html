@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seagrass Stories – Educator Guide</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+    :root {
+      --navy: #0e2a38;
+      --teal: #008374;
+      --teal-light: #e8f5f3;
+      --card-bg: #f8fafb;
+      --header-bg: #f1f5f9;
+      --text: #1f2937;
+      --text-muted: #596773;
+      --border: #cbd5e1;
+      --border-light: #e2e8f0;
+      --font-heading: 'Zeist', 'Plus Jakarta Sans', Arial, sans-serif;
+      --font-body: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f8fafc;
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* =========================================================
+       SCREEN ACTION BAR (Disappears on Print)
+       ========================================================= */
+    .print-action-bar {
+      max-width: 820px;
+      margin: 16px auto 0 auto;
+      padding: 10px 16px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .action-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .action-text strong {
+      color: var(--navy);
+    }
+
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--navy);
+      color: #ffffff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }
+
+    .print-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Document Sheets */
+    .sheet {
+      width: 100%;
+      max-width: 820px;
+      background: #ffffff;
+      margin: 16px auto;
+      padding: 24px 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Header */
+    .header {
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .eyebrow-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+
+    .eyebrow {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .print-badge {
+      font-family: var(--font-heading);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .main-title {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .meta-pills span {
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--navy);
+      background: var(--teal-light);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 131, 116, 0.2);
+    }
+
+    /* Content Hierarchy */
+    .section-label {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+
+    .lead-question {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--card-bg);
+      border-left: 3px solid var(--teal);
+      border-top: 1px solid var(--border-light);
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 10px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0 14px 0;
+    }
+
+    .body-copy {
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin-bottom: 12px;
+    }
+
+    .bullet-list li {
+      font-size: 12px;
+      line-height: 1.5;
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 4px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: bold;
+    }
+
+    /* Learning Journey */
+    .journey-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin: 10px 0 16px 0;
+    }
+
+    .journey-step {
+      background: var(--card-bg);
+      border-left: 3px solid var(--teal);
+      border-top: 1px solid var(--border-light);
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 10px 12px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .step-name {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .step-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .two-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    /* Facilitation Sequence (Page 2) */
+    .sequence-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 12px 0 16px 0;
+    }
+
+    .phase-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .phase-card-header {
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .phase-card-title {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+    }
+
+    .phase-card-time {
+      font-size: 10.5px;
+      font-weight: bold;
+      color: var(--teal);
+      background: #ffffff;
+      padding: 2px 8px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+    }
+
+    .phase-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px 12px;
+    }
+
+    .col-label {
+      font-family: var(--font-heading);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+      margin-bottom: 3px;
+    }
+
+    .col-content {
+      font-size: 11.5px;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    .notes-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .note-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 4px 4px 0;
+      padding: 9px 12px;
+    }
+
+    .note-box h3 {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    .note-box p {
+      font-size: 11px;
+      line-height: 1.45;
+      color: var(--text-muted);
+    }
+
+    .doc-footer {
+      border-top: 1px solid var(--border-light);
+      padding-top: 8px;
+      margin-top: 16px;
+      font-family: var(--font-heading);
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Screen Desktop Breakpoint */
+    @media screen and (min-width: 768px) {
+      .sheet {
+        padding: 32px 34px;
+      }
+      .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .eyebrow-row {
+        gap: 12px;
+      }
+      .journey-strip {
+        grid-template-columns: repeat(4, 1fr);
+        background: var(--card-bg);
+        border: 1px solid var(--border-light);
+        padding: 10px;
+      }
+      .journey-step {
+        background: transparent;
+        border: none;
+        display: block;
+        text-align: center;
+        position: relative;
+        padding: 2px;
+      }
+      .journey-step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        right: -8px;
+        top: 25%;
+        color: var(--teal);
+        font-weight: bold;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .phase-card-body {
+        display: grid;
+        grid-template-columns: 1.15fr 1fr 1fr;
+        gap: 16px;
+      }
+      .notes-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+    }
+
+    /* Strictly 2 A4 Pages in Print */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: transparent;
+      }
+
+      /* Hide Action Bar during print */
+      .print-action-bar {
+        display: none !important;
+      }
+
+      .sheet {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        max-height: 297mm;
+        padding: 14mm 16mm 12mm 16mm;
+        margin: 0 auto;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        page-break-after: always;
+        overflow: hidden;
+      }
+      .header {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: flex-end !important;
+      }
+      .journey-strip {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        background: var(--card-bg);
+        border: 1px solid var(--border-light);
+        padding: 8px;
+      }
+      .journey-step {
+        display: block !important;
+        background: transparent !important;
+        border: none !important;
+        text-align: center;
+        position: relative;
+      }
+      .journey-step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        right: -8px;
+        top: 25%;
+        color: var(--teal);
+        font-weight: bold;
+      }
+      .two-col {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 16px !important;
+      }
+      .phase-card-body {
+        display: grid !important;
+        grid-template-columns: 1.15fr 1fr 1fr !important;
+        gap: 14px !important;
+      }
+      .notes-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SCREEN-ONLY ACTION BAR -->
+  <aside class="print-action-bar" aria-label="Print controls">
+    <div class="action-text">
+      <strong>Educator Guide:</strong> Formatted for A4 printing or PDF export.
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+      Print / Save to PDF
+    </button>
+  </aside>
+
+  <!-- ================= GUIDE: PAGE 1 (OVERVIEW) ================= -->
+  <main class="sheet">
+    <div>
+      <header class="header">
+        <div>
+          <div class="eyebrow-row">
+            <div class="eyebrow">Educator Guide</div>
+            <span class="print-badge">A4 Printable Guide</span>
+          </div>
+          <h1 class="main-title">Seagrass Stories</h1>
+        </div>
+        <div class="meta-pills">
+          <span>Ages 12–14</span>
+          <span>60 minutes</span>
+          <span>Groups of 2–3</span>
+        </div>
+      </header>
+
+      <div class="section-label">Driving question</div>
+      <div class="lead-question">What does it take to bring an underwater meadow back to life?</div>
+
+      <div class="section-label">Learning intention</div>
+      <p class="body-copy">Explore how seagrass restoration works and use what you discover to help someone else understand it.</p>
+
+      <div class="section-label">Learning outcomes</div>
+      <ul class="bullet-list">
+        <li>Understand how restoration supports the recovery of seagrass meadows.</li>
+        <li>Investigate how the game represents restoration through changes, timescales and evidence of recovery.</li>
+        <li>Create an experience that uses choices, consequences and change over time to communicate an idea about ocean restoration.</li>
+      </ul>
+
+      <div class="section-label">Learning journey</div>
+      <div class="journey-strip">
+        <div class="journey-step">
+          <div class="step-name">Experience</div>
+          <div class="step-sub">Enter the meadow</div>
+        </div>
+        <div class="journey-step">
+          <div class="step-name">Investigate</div>
+          <div class="step-sub">Look behind the game</div>
+        </div>
+        <div class="journey-step">
+          <div class="step-name">Reflect</div>
+          <div class="step-sub">What did you discover?</div>
+        </div>
+        <div class="journey-step">
+          <div class="step-name">Create</div>
+          <div class="step-sub">Bring ideas to life</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="section-label">What you need</div>
+          <p class="body-copy">Internet-connected display and student devices where possible; access to the Seagrass Stories webpage and game; one Learner Graphic Organiser per learner or group; 6–10 Post-its per group; pens or markers.</p>
+
+          <div class="section-label" style="margin-top: 12px;">Facilitation approach</div>
+          <p class="body-copy">Learners encounter the subject, investigate it through play, reflect on what they discover and apply their understanding through creation. Facilitation focuses on curiosity, questions, connections and evidence of learning.</p>
+        </div>
+
+        <div>
+          <div class="section-label">Before you begin</div>
+          <p class="body-copy">The restoration mats support seagrass shoots so they can stay in place, take root and grow. The game represents parts of the restoration process. Encourage learners to explore what changes, what takes time and what evidence could indicate recovery.</p>
+          <p class="body-copy" style="margin-top: 8px;">Use the Learner Graphic Organiser throughout the session to make thinking visible. Learners can write, sketch, connect ideas and return to earlier thinking as their understanding develops.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="doc-footer">
+      <span>OceanX Education</span>
+      <span>Seagrass Stories // Page 1</span>
+    </footer>
+  </main>
+
+  <!-- ================= GUIDE: PAGE 2 (FACILITATION GUIDE) ================= -->
+  <main class="sheet">
+    <div>
+      <header class="header">
+        <div>
+          <div class="eyebrow-row">
+            <div class="eyebrow">Facilitation Guide</div>
+            <span class="print-badge">Session Timeline</span>
+          </div>
+          <h1 class="main-title" style="font-size: 22px;">Experience → Investigate → Reflect → Create</h1>
+        </div>
+      </header>
+
+      <div class="sequence-stack">
+        <!-- 1 -->
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <span class="phase-card-title">1. Experience</span>
+            <span class="phase-card-time">15 min</span>
+          </div>
+          <div class="phase-card-body">
+            <div>
+              <div class="col-label">Learner Activity</div>
+              <div class="col-content">Watch, observe the meadow, meet Nada and capture initial thinking using <em>See • Think • Wonder</em>.</div>
+            </div>
+            <div>
+              <div class="col-label">Key Questions & Prompts</div>
+              <div class="col-content">
+                <strong>SEE:</strong> What do you notice?<br>
+                <strong>THINK:</strong> What is happening? What relationships can you see?<br>
+                <strong>WONDER:</strong> What questions does this raise? What do you want to understand more about?
+              </div>
+            </div>
+            <div>
+              <div class="col-label">Evidence of Learning</div>
+              <div class="col-content">Learners notice details and relationships, offer interpretations and generate questions they can investigate.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <span class="phase-card-title">2. Investigate</span>
+            <span class="phase-card-time">15 min</span>
+          </div>
+          <div class="phase-card-body">
+            <div>
+              <div class="col-label">Learner Activity</div>
+              <div class="col-content">Play Seagrass Stories through the lens of a scientist and examine change, timescale and recovery.</div>
+            </div>
+            <div>
+              <div class="col-label">Key Questions & Prompts</div>
+              <div class="col-content">
+                • What changes quickly?<br>
+                • What might take longer in the ocean?<br>
+                • What evidence would tell you the meadow is recovering?
+              </div>
+            </div>
+            <div>
+              <div class="col-label">Evidence of Learning</div>
+              <div class="col-content">Learners distinguish between immediate game responses and ecological change, and identify possible evidence of recovery.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <span class="phase-card-title">3. Reflect</span>
+            <span class="phase-card-time">15 min</span>
+          </div>
+          <div class="phase-card-body">
+            <div>
+              <div class="col-label">Learner Activity</div>
+              <div class="col-content">Pause individually, then share and compare thinking with others. Return to earlier notes where useful.</div>
+            </div>
+            <div>
+              <div class="col-label">Key Questions & Prompts</div>
+              <div class="col-content">
+                • What changed how you think about ocean restoration?<br>
+                • What are you still wondering?
+              </div>
+            </div>
+            <div>
+              <div class="col-label">Evidence of Learning</div>
+              <div class="col-content">Learners articulate a shift, connection or new understanding and identify questions that remain.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <span class="phase-card-title">4. Create</span>
+            <span class="phase-card-time">15 min</span>
+          </div>
+          <div class="phase-card-body">
+            <div>
+              <div class="col-label">Learner Activity</div>
+              <div class="col-content">In groups of 2–3, use 6–10 Post-its to design an experience that helps someone else understand an idea about ocean restoration.</div>
+            </div>
+            <div>
+              <div class="col-label">Key Questions & Prompts</div>
+              <div class="col-content">
+                • What choice or action happens?<br>
+                • What happens because of it?<br>
+                • How does the habitat respond?<br>
+                • How do things change over time?
+              </div>
+            </div>
+            <div>
+              <div class="col-label">Evidence of Learning</div>
+              <div class="col-content">Learners communicate understanding through a causal chain: Choice / Action → Consequence → Habitat Response → Change Over Time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-grid">
+        <div class="note-box">
+          <h3>See • Think • Wonder</h3>
+          <p>Use this routine during Experience to move from observation to inquiry. Give learners time to notice before inviting explanations. Capture different interpretations and questions, then revisit them later.</p>
+        </div>
+        <div class="note-box">
+          <h3>The 6–10 Post-it Constraint</h3>
+          <p>Gives learners enough elements to explore relationships while keeping the system workable. Ask groups to connect Post-its with arrows: <em>Show how one change leads to the next.</em></p>
+        </div>
+        <div class="note-box" style="grid-column: 1 / -1;">
+          <h3>After the Session</h3>
+          <p>Capture where curiosity appeared, which connections learners made, what their creations revealed about understanding, and where the experience could be strengthened.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="doc-footer">
+      <span>OceanX Education</span>
+      <span>Seagrass Stories // Page 2</span>
+    </footer>
+  </main>
+
+</body>
+</html>
