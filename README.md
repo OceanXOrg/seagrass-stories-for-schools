@@ -1,5 +1,4 @@
 # Seagrass Stories
-
 A classroom learning experience from OceanX Education about restoring seagrass meadows.
 
 The page is designed for educators working with learners aged 12-14 in a 60-minute session. Learners explore seagrass ecology, investigate the restoration process, reflect on what they experienced, and create an idea that communicates ocean restoration.
